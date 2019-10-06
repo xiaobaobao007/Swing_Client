@@ -8,24 +8,24 @@ Java Swing组件写的游戏客户端
 
     - 登录界面
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/login.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/login.png)
 
     - 选择英雄界面
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/choose.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/choose.png)
 
       进入关卡前的界面
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/loading.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/loading.png)
 
     - 战斗界面1
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/fighting1.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/fighting1.png)
 
     - 战斗界面2
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/fighting2.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/fighting2.png)
 
     - 背包界面
 
-    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/img/show/menu.png)
+    - ![1](https://github.com/xiaobaobao007/Swing_Client/blob/master/resouce/image/show/menu.png)
