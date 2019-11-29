@@ -3,7 +3,9 @@ Java Swing组件写的游戏客户端
 
 # 部署顺序
 1:先把服务器部署好呀
+
 2:再把resouce/lib/beautyeye_lnf.jar的jar安装下,这是个美观的jar包
+
 3:src/Client/ClientStart.java的服务器IP地址的配置,再启动就好了
 
 * # 图片展示
