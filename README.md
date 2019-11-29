@@ -3,7 +3,7 @@ Java Swing组件写的游戏客户端
 
 
 
-先把lib下的jar安装下。。。
+先把resouce/lib/beautyeye_lnf.jar的jar安装下,这是个美观的jar包
 * # 图片展示
 
     - 登录界面
