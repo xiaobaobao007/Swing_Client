@@ -8,6 +8,9 @@ Java Swing组件写的游戏客户端
 
 3:src/Client/ClientStart.java的服务器IP地址的配置,再启动就好了
 
+# 视频展示
+https://github.com/xiaobaobao007/Swing_Server/blob/master/resouce/video/video.wmv
+
 * # 图片展示
 
     - 登录界面
