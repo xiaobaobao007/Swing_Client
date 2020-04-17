@@ -43,7 +43,7 @@ public class HurtController {
                             if (blow) one.addHurtBloods(hurt, 20, 5, "");
                             else one.addHurtBloods(hurt, 20, type, "");
                         } else {
-                            new Music(0, 1);
+                            Music.play(0, 1);
                             ClientStart.OutStreamAll(one.getPeople() + ":0302:" + id);
                             one.setAlive(false);
                         }
@@ -61,10 +61,10 @@ public class HurtController {
         OwnPeople own = GameController.own;
         if (square_mater(x, y, own.getX(), own.getY(), scope)) {
             if (type == 1) {
-                new Music(1, 1);
+                Music.play(1, 1);
                 hurt = own.getMAttack(hurt);
             } else {
-                new Music(1, 1);
+                Music.play(1, 1);
                 hurt = own.getPAttack(hurt);
             }
             if (hurt < 0) hurt = 0;

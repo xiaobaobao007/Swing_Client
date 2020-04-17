@@ -1,15 +1,13 @@
 package Client;
 
-import java.io.DataInputStream;
+import Controller.Music;
+import Panel.Login;
+import javazoom.jl.player.Player;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
-import Controller.Music;
-import Panel.Login;
 
 public class ClientStart {
     public static String ip;
@@ -29,7 +27,7 @@ public class ClientStart {
             dos = new DataOutputStream(socket.getOutputStream());
             dos.writeUTF(ip + ":0002");
             new Login();
-            new Music();
+			new Thread(Music::new).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,11 +52,11 @@ public class ClientStart {
 //			socket = new Socket("10.200.120.155", 8089);
 //			socket = new Socket("10.114.11.14", 8088);
 //			socket = new Socket("39.105.34.165", 80);
-            socket = new Socket("localhost", 80);
+			socket = new Socket("192.168.0.107", 8080);
 //			socket = new Socket("localhost", 8089);
             new ClientStart(socket);
         } catch (IOException e) {
-            System.out.println("ClientStart.main()");
+			System.out.println("服务器未运行");
         }
     }
 }

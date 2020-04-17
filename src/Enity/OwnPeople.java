@@ -641,7 +641,7 @@ public class OwnPeople implements Runnable {
 
     public synchronized void people_attack() {
         if (!weapon_state) {
-            new Music(1, 2);
+            Music.play(1, 2);
             weapon_state = true;
             own_weapon_special_state = 1;
             skill0 = "resouce/image/specials/special4/skill2.png";
@@ -654,7 +654,7 @@ public class OwnPeople implements Runnable {
         if (!magic_state) {
             if (magic - 3 > 0) {
                 magic -= 3;
-                new Music(1, 3);
+                Music.play(1, 3);
                 magic_state = true;
                 skill1 = "resouce/image/specials/special3/skill2.png";
                 Skills.add(new Special(1, x, y, 3, direct, magic_hurt, 15));

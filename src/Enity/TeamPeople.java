@@ -189,7 +189,7 @@ public class TeamPeople implements Runnable {
 
     public synchronized void people_attack() {
         if (!weapon_state) {
-            new Music(1, 2);
+            Music.play(1, 2);
             weapon_state = true;
             own_weapon_special_state = 1;
         }
@@ -197,7 +197,7 @@ public class TeamPeople implements Runnable {
 
     public synchronized void Magic_attack() {
         if (!magic_state) {
-            new Music(1, 3);
+            Music.play(1, 3);
             magic_state = true;
             Skills.add(new Special(1, x, y, 3, direct, 0, 15));
         }

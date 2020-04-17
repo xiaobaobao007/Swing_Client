@@ -99,10 +99,10 @@ public class GameLeave extends JPanel implements MouseListener, MouseWheelListen
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         if (e.getWheelRotation() == 1) {
-            System.out.println("»¬ÂÖÏòÇ°¡£¡£¡£¡£");
+            System.out.println("æ»‘è½®å‘å‰ã€‚ã€‚ã€‚ã€‚");
         }
         if (e.getWheelRotation() == -1) {
-            System.out.println("»¬ÂÖÏòºó....");
+            System.out.println("æ»‘è½®å‘å....");
         }
     }
 

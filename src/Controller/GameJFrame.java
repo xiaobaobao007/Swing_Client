@@ -41,7 +41,8 @@ public class GameJFrame {
         GameJFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 ClientStart.OutStreamAll("1:0305");
-                InputStream.TF = false;
+				InputStream.TF = false;
+
                 System.exit(0);
             }
         });
