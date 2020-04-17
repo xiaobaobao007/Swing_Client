@@ -1,25 +1,16 @@
 package Controller;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import ChooseChapter.ChooseLeave;
+import ChooseGamer.ChooseStart;
+import Enity.*;
+import Panel.MesPanel;
+
+import java.awt.*;
 import java.awt.image.ImageObserver;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
-import ChooseChapter.ChooseLeave;
-import ChooseGamer.ChooseStart;
-import Enity.Attribute;
-import Enity.EnemyPeople;
-import Enity.Goods;
-import Enity.Message;
-import Enity.OwnPeople;
-import Enity.Skills;
-import Enity.TeamPeople;
-import Panel.MesPanel;
+import javax.swing.*;
 
 public class GameController extends JPanel implements Runnable {
 
@@ -41,7 +32,7 @@ public class GameController extends JPanel implements Runnable {
 	public static int leave;
 	public static HurtController hurtController;
 	public static Vector<EnemyPeople> Enemys = new Vector<>();
-	public static List<Goods> map_goods = new ArrayList<>();
+	public static Vector<Goods> map_goods = new Vector<>();
 	public static Vector<OwnPeople> Owns = new Vector<>();
 	public static OwnPeople own = new OwnPeople();
 	public static int[] Lastnums = new int[10];
@@ -136,7 +127,7 @@ public class GameController extends JPanel implements Runnable {
 		GameController.minleave += 1;
 		int leftleave = Lastnums[leave - 1] - minleave;
 		if (leftleave == 0) {
-			MesPanel.messages.add(new Message(-1, "这是最后一关"));
+			MesPanel.messages.add(new Message(-1, "这是最后一关，请退出进行下一关哦"));
 			GameController.minleave = 0;
 			if (ChooseLeave.leaves == leave) {
 				ChooseLeave.leaves++;
