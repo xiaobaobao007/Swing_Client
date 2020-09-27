@@ -1,93 +1,89 @@
 package Panel;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
-import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
+import javax.swing.*;
 
 import Controller.BackPack;
 import Controller.GameController;
 import Enity.Goods;
 import Enity.OwnPeople;
+import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
 
 @SuppressWarnings("serial")
 public class PackPanel extends JPanel {
 
-    private int width = BackPack.width;
-    private int height = BackPack.height;
+	private final int width = BackPack.width;
+	private final int height = BackPack.height;
 
-    public PackPanel() {
-        super();
-        add(this, 0);
-    }
+	public PackPanel() {
+		super();
+		add(this, 0);
+	}
 
-    public PackPanel(int a) {
-        rest(a);
-    }
+	public PackPanel(int a) {
+		rest(a);
+	}
 
-    private void rest(int a) {
-        PackPanel packPanel = BackPack.packPanel;
-        packPanel.removeAll();
-        add(packPanel, a);
-        BackPack.packPanel.validate();
-        BackPack.packPanel.repaint();
-    }
+	private void rest(int a) {
+		PackPanel packPanel = BackPack.packPanel;
+		packPanel.removeAll();
+		add(packPanel, a);
+		BackPack.packPanel.validate();
+		BackPack.packPanel.repaint();
+	}
 
-    public void add(PackPanel packPanel, int index) {
-        packPanel.setLayout(null);
-        packPanel.setBounds(0, 0, width, height);
-        List<Goods> goods = OwnPeople.own_goods;
-        int size = goods.size();
-        int j = size - index * 4 > 16 ? 16 : size;
-        for (int i = index * 4; i < j; i++) {
-            packPanel.add(new Pack_after(i - index * 4, goods.get(i)));
-        }
-        JButton prve = new JButton("ÉÏÒ»Ò³");
-        prve.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.green));
-        prve.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent arg0) {
-                if (index > 0)
-                    new PackPanel(index - 1);
-            }
-        });
-        prve.setBounds(20, 425, 80, 40);
-        JButton lastt = new JButton("ÏÂÒ»Ò³");
-        lastt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.green));
-        lastt.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent arg0) {
-                if (index < OwnPeople.own_goods.size() / 4 - 2)
-                    new PackPanel(index + 1);
-            }
-        });
-        lastt.setBounds(120, 425, 80, 40);
-        JButton Goods_all = new JButton("È«²¿");
-        if (ShopPanel.button == 1) {
-            Goods_all.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.normal));
-        } else {
-            Goods_all.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.blue));
-        }
-        packPanel.add(prve);
-        packPanel.add(lastt);
-        packPanel.setBackground(Color.pink);
-    }
+	public void add(PackPanel packPanel, int index) {
+		packPanel.setLayout(null);
+		packPanel.setBounds(0, 0, width, height);
+		List<Goods> goods = OwnPeople.own_goods;
+		int size = goods.size();
+		int j = size - index * 4 > 16 ? 16 : size;
+		for (int i = index * 4; i < j; i++) {
+			packPanel.add(new Pack_after(i - index * 4, goods.get(i)));
+		}
+		JButton prve = new JButton("ä¸Šä¸€é¡µ");
+		prve.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.green));
+		prve.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				if (index > 0)
+					new PackPanel(index - 1);
+			}
+		});
+		prve.setBounds(20, 425, 80, 40);
+		JButton lastt = new JButton("ä¸‹ä¸€é¡µ");
+		lastt.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.green));
+		lastt.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				if (index < OwnPeople.own_goods.size() / 4 - 2)
+					new PackPanel(index + 1);
+			}
+		});
+		lastt.setBounds(120, 425, 80, 40);
+		JButton Goods_all = new JButton("å…¨éƒ¨");
+		if (ShopPanel.button == 1) {
+			Goods_all.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.normal));
+		} else {
+			Goods_all.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.blue));
+		}
+		packPanel.add(prve);
+		packPanel.add(lastt);
+		packPanel.setBackground(Color.pink);
+	}
 
 //	public static void main(String[] args) {
 //		int index=1;int size=10;
 //		System.out.println(size-index*4>9?9:size);
 //	}
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 15));
-        g.drawString("Äã»¹Ê£Óà £¤:" + GameController.own.getMoney(), 250, 425);
-    }
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 15));
+		g.drawString("ä½ è¿˜å‰©ä½™ ï¿¥:" + GameController.own.getMoney(), 250, 425);
+	}
 }

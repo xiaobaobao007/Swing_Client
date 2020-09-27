@@ -2,264 +2,264 @@ package Enity;
 
 public class Attribute {
 
-    private int power = 0;// 1.Á¦Á¿
-    private int magic = 0;// 2.Ä§Á¦
-    private int skill = 0;// 3.¼¼ÇÉ
-    private int speed = 0;// 4.ËÙ¶È
-    private int physical = 0;// 5.ÌåÖÊ
-    private int armor = 0;// 6.»¤¼×
-    private int resistance = 0;// 7.¿¹ĞÔ
+	private int power = 0;// 1.åŠ›é‡
+	private int magic = 0;// 2.é­”åŠ›
+	private int skill = 0;// 3.æŠ€å·§
+	private int speed = 0;// 4.é€Ÿåº¦
+	private int physical = 0;// 5.ä½“è´¨
+	private int armor = 0;// 6.æŠ¤ç”²
+	private int resistance = 0;// 7.æŠ—æ€§
 
-    private int con_phy_attack;// 1.ÎïÀíÉËº¦ÏµÊı
-    private int con_mag_attack;// 2.·¨ÊõÉËº¦ÏµÊı
-    private int con_MP;// 3.Ä§Á¦ÖµÏµÊı
-    private int con_blow;// 4.±©»÷ÏµÊı
-    private int con_shooting;// 5.ÃüÖĞÂÊÏµÊı
-    private int con_dodge;// 6.ÉÁ±ÜÂÊÏµÊı
-    private int con_speed_action;// 7.ĞĞ¶¯ËÙ¶ÈÏµÊı
-    private int con_HP;// 8.ÉúÃüÏµÊı
-    private int con_phy_defense;// 9.ÎïÀí·ÀÓùÏµÊı
-    private int con_mag_defense;// 10.·¨Êõ·ÀÓùÏµÊı
+	private int con_phy_attack;// 1.ç‰©ç†ä¼¤å®³ç³»æ•°
+	private int con_mag_attack;// 2.æ³•æœ¯ä¼¤å®³ç³»æ•°
+	private int con_MP;// 3.é­”åŠ›å€¼ç³»æ•°
+	private int con_blow;// 4.æš´å‡»ç³»æ•°
+	private int con_shooting;// 5.å‘½ä¸­ç‡ç³»æ•°
+	private int con_dodge;// 6.é—ªé¿ç‡ç³»æ•°
+	private int con_speed_action;// 7.è¡ŒåŠ¨é€Ÿåº¦ç³»æ•°
+	private int con_HP;// 8.ç”Ÿå‘½ç³»æ•°
+	private int con_phy_defense;// 9.ç‰©ç†é˜²å¾¡ç³»æ•°
+	private int con_mag_defense;// 10.æ³•æœ¯é˜²å¾¡ç³»æ•°
 
-    private int phy_attack;// ÎïÀíÉËº¦
-    private int mag_attack;// ·¨ÊõÉËº¦
-    private int MP;// Ä§Á¦Öµ
-    private int blow;// ±©»÷
-    private int shooting;// ÃüÖĞÂÊ
-    private int dodge;// ÉÁ±ÜÂÊ
-    private int speed_action;// ĞĞ¶¯ËÙ¶È
-    private int HP;// ÉúÃü
-    private int phy_defense;// ÎïÀí·ÀÓù
-    private int mag_defense;// ·¨Êõ·ÀÓù
+	private int phy_attack;// ç‰©ç†ä¼¤å®³
+	private int mag_attack;// æ³•æœ¯ä¼¤å®³
+	private int MP;// é­”åŠ›å€¼
+	private int blow;// æš´å‡»
+	private int shooting;// å‘½ä¸­ç‡
+	private int dodge;// é—ªé¿ç‡
+	private int speed_action;// è¡ŒåŠ¨é€Ÿåº¦
+	private int HP;// ç”Ÿå‘½
+	private int phy_defense;// ç‰©ç†é˜²å¾¡
+	private int mag_defense;// æ³•æœ¯é˜²å¾¡
 
-    public Attribute(int con_phy_attack, int con_mag_attack, int con_MP, int// ÏµÊıÉè¶¨
-            con_blow, int con_shooting, int con_dodge, int con_speed_action, int con_HP, int con_phy_defense,
-                     int con_mag_defense, int power, int magic, int skill, int speed, int physical, int armor, int resistance) {// ÊôĞÔÉè¶¨
-        super();
-        this.con_phy_attack = con_phy_attack;
-        this.con_mag_attack = con_mag_attack;
-        this.con_MP = con_MP;
-        this.con_blow = con_blow;
-        this.con_shooting = con_shooting;
-        this.con_dodge = con_dodge;
-        this.con_speed_action = con_speed_action;
-        this.con_HP = con_HP;
-        this.con_phy_defense = con_phy_defense;
-        this.con_mag_defense = con_mag_defense;
-        setPower(power);
-        setMagic(magic);
-        setSkill(skill);
-        setSpeed(speed);
-        setPhysical(physical);
-        setArmor(armor);
-        setResistance(resistance);
-    }
+	public Attribute(int con_phy_attack, int con_mag_attack, int con_MP, int// ç³»æ•°è®¾å®š
+																				 con_blow, int con_shooting, int con_dodge, int con_speed_action, int con_HP, int con_phy_defense,
+					 int con_mag_defense, int power, int magic, int skill, int speed, int physical, int armor, int resistance) {// å±æ€§è®¾å®š
+		super();
+		this.con_phy_attack = con_phy_attack;
+		this.con_mag_attack = con_mag_attack;
+		this.con_MP = con_MP;
+		this.con_blow = con_blow;
+		this.con_shooting = con_shooting;
+		this.con_dodge = con_dodge;
+		this.con_speed_action = con_speed_action;
+		this.con_HP = con_HP;
+		this.con_phy_defense = con_phy_defense;
+		this.con_mag_defense = con_mag_defense;
+		setPower(power);
+		setMagic(magic);
+		setSkill(skill);
+		setSpeed(speed);
+		setPhysical(physical);
+		setArmor(armor);
+		setResistance(resistance);
+	}
 
-    @Override
-    public String toString() {
-        return "Attribute [phy_attack=" + phy_attack + ", mag_attack=" + mag_attack + ", MP=" + MP + ", blow=" + blow
-                + ", shooting=" + shooting + ", dodge=" + dodge + ", speed_action=" + speed_action + ", HP=" + HP
-                + ", phy_defense=" + phy_defense + ", mag_defense=" + mag_defense + "]";
-    }
+	@Override
+	public String toString() {
+		return "Attribute [phy_attack=" + phy_attack + ", mag_attack=" + mag_attack + ", MP=" + MP + ", blow=" + blow
+					   + ", shooting=" + shooting + ", dodge=" + dodge + ", speed_action=" + speed_action + ", HP=" + HP
+					   + ", phy_defense=" + phy_defense + ", mag_defense=" + mag_defense + "]";
+	}
 
-    public int getPower() {
-        return power;
-    }
+	public int getPower() {
+		return power;
+	}
 
-    public void setPower(int power) {
-        this.power += power;
-        this.phy_attack = this.power * this.con_phy_attack;
-    }
+	public void setPower(int power) {
+		this.power += power;
+		this.phy_attack = this.power * this.con_phy_attack;
+	}
 
-    public int getMagic() {
-        return magic;
-    }
+	public int getMagic() {
+		return magic;
+	}
 
-    public void setMagic(int magic) {
-        this.magic += magic;
-        this.mag_attack = this.magic * this.con_mag_attack;
-        this.MP = this.magic * this.con_MP;
-    }
+	public void setMagic(int magic) {
+		this.magic += magic;
+		this.mag_attack = this.magic * this.con_mag_attack;
+		this.MP = this.magic * this.con_MP;
+	}
 
-    public int getSkill() {
-        return skill;
-    }
+	public int getSkill() {
+		return skill;
+	}
 
-    public void setSkill(int skill) {
-        this.skill += skill;
-        this.blow = this.skill * this.con_blow;
-        this.shooting = this.skill * this.con_shooting;
-    }
+	public void setSkill(int skill) {
+		this.skill += skill;
+		this.blow = this.skill * this.con_blow;
+		this.shooting = this.skill * this.con_shooting;
+	}
 
-    public int getSpeed() {
-        return speed;
-    }
+	public int getSpeed() {
+		return speed;
+	}
 
-    public void setSpeed(int speed) {
-        this.speed += speed;
-        this.dodge = this.speed * this.con_dodge;
-        this.speed_action = this.speed * this.con_speed_action;
-    }
+	public void setSpeed(int speed) {
+		this.speed += speed;
+		this.dodge = this.speed * this.con_dodge;
+		this.speed_action = this.speed * this.con_speed_action;
+	}
 
-    public int getPhysical() {
-        return physical;
-    }
+	public int getPhysical() {
+		return physical;
+	}
 
-    public void setPhysical(int physical) {
-        this.physical += physical;
-        this.HP = this.physical * this.con_HP;
-    }
+	public void setPhysical(int physical) {
+		this.physical += physical;
+		this.HP = this.physical * this.con_HP;
+	}
 
-    public int getArmor() {
-        return armor;
-    }
+	public int getArmor() {
+		return armor;
+	}
 
-    public void setArmor(int armor) {
-        this.armor += armor;
-        this.phy_defense = this.armor * this.con_phy_defense;
+	public void setArmor(int armor) {
+		this.armor += armor;
+		this.phy_defense = this.armor * this.con_phy_defense;
 
-    }
+	}
 
-    public int getResistance() {
-        return resistance;
-    }
+	public int getResistance() {
+		return resistance;
+	}
 
-    public void setResistance(int resistance) {
-        this.resistance += resistance;
-        this.mag_defense = this.resistance * this.con_mag_defense;
-    }
+	public void setResistance(int resistance) {
+		this.resistance += resistance;
+		this.mag_defense = this.resistance * this.con_mag_defense;
+	}
 
-    public int getCon_phy_attack() {
-        return con_phy_attack;
-    }
+	public int getCon_phy_attack() {
+		return con_phy_attack;
+	}
 
-    public void setCon_phy_attack(int con_phy_attack) {
-        this.con_phy_attack = con_phy_attack;
-    }
+	public void setCon_phy_attack(int con_phy_attack) {
+		this.con_phy_attack = con_phy_attack;
+	}
 
-    public int getCon_mag_attack() {
-        return con_mag_attack;
-    }
+	public int getCon_mag_attack() {
+		return con_mag_attack;
+	}
 
-    public void setCon_mag_attack(int con_mag_attack) {
-        this.con_mag_attack = con_mag_attack;
-    }
+	public void setCon_mag_attack(int con_mag_attack) {
+		this.con_mag_attack = con_mag_attack;
+	}
 
-    public int getCon_MP() {
-        return con_MP;
-    }
+	public int getCon_MP() {
+		return con_MP;
+	}
 
-    public void setCon_MP(int con_MP) {
-        this.con_MP = con_MP;
-    }
+	public void setCon_MP(int con_MP) {
+		this.con_MP = con_MP;
+	}
 
-    public int getCon_blow() {
-        return con_blow;
-    }
+	public int getCon_blow() {
+		return con_blow;
+	}
 
-    public void setCon_blow(int con_blow) {
-        this.con_blow = con_blow;
-    }
+	public void setCon_blow(int con_blow) {
+		this.con_blow = con_blow;
+	}
 
-    public int getCon_shooting() {
-        return con_shooting;
-    }
+	public int getCon_shooting() {
+		return con_shooting;
+	}
 
-    public void setCon_shooting(int con_shooting) {
-        this.con_shooting = con_shooting;
-    }
+	public void setCon_shooting(int con_shooting) {
+		this.con_shooting = con_shooting;
+	}
 
-    public int getCon_dodge() {
-        return con_dodge;
-    }
+	public int getCon_dodge() {
+		return con_dodge;
+	}
 
-    public void setCon_dodge(int con_dodge) {
-        this.con_dodge = con_dodge;
-    }
+	public void setCon_dodge(int con_dodge) {
+		this.con_dodge = con_dodge;
+	}
 
-    public int getCon_speed_action() {
-        return con_speed_action;
-    }
+	public int getCon_speed_action() {
+		return con_speed_action;
+	}
 
-    public void setCon_speed_action(int con_speed_action) {
-        this.con_speed_action = con_speed_action;
-    }
+	public void setCon_speed_action(int con_speed_action) {
+		this.con_speed_action = con_speed_action;
+	}
 
-    public int getCon_HP() {
-        return con_HP;
-    }
+	public int getCon_HP() {
+		return con_HP;
+	}
 
-    public void setCon_HP(int con_HP) {
-        this.con_HP = con_HP;
-    }
+	public void setCon_HP(int con_HP) {
+		this.con_HP = con_HP;
+	}
 
-    public int getCon_phy_defense() {
-        return con_phy_defense;
-    }
+	public int getCon_phy_defense() {
+		return con_phy_defense;
+	}
 
-    public void setCon_phy_defense(int con_phy_defense) {
-        this.con_phy_defense = con_phy_defense;
-    }
+	public void setCon_phy_defense(int con_phy_defense) {
+		this.con_phy_defense = con_phy_defense;
+	}
 
-    public int getCon_mag_defense() {
-        return con_mag_defense;
-    }
+	public int getCon_mag_defense() {
+		return con_mag_defense;
+	}
 
-    public void setCon_mag_defense(int con_mag_defense) {
-        this.con_mag_defense = con_mag_defense;
-    }
+	public void setCon_mag_defense(int con_mag_defense) {
+		this.con_mag_defense = con_mag_defense;
+	}
 
-    public int getPhy_attack() {
-        return phy_attack;
-    }
+	public int getPhy_attack() {
+		return phy_attack;
+	}
 
-    public int getMag_attack() {
-        return mag_attack;
-    }
+	public int getMag_attack() {
+		return mag_attack;
+	}
 
-    public int getMP() {
-        return MP;
-    }
+	public int getMP() {
+		return MP;
+	}
 
-    public boolean getBlow() {
-        return (int) (Math.random() * 1000) <= this.blow;
-    }
+	public boolean getBlow() {
+		return (int) (Math.random() * 1000) <= this.blow;
+	}
 
-    public String getBlowto() {
-        return blow * 1.0 / 10 + "%";
-    }
+	public String getBlowto() {
+		return blow * 1.0 / 10 + "%";
+	}
 
-    public boolean getShooting(int x) {
-        int y = this.shooting / (this.shooting + x) * 1000;
-        return (int) (Math.random() * 1000) <= y;
-    }
+	public boolean getShooting(int x) {
+		int y = this.shooting / (this.shooting + x) * 1000;
+		return (int) (Math.random() * 1000) <= y;
+	}
 
-    public String getShootingto() {
-        return shooting * 1.0 / 10 + "%";
-    }
+	public String getShootingto() {
+		return shooting * 1.0 / 10 + "%";
+	}
 
-    public int getDodge() {
-        return this.dodge;
-    }
+	public int getDodge() {
+		return this.dodge;
+	}
 
-    public String getDodgeto() {
-        return dodge * 1.0 / 10 + "%";
-    }
+	public String getDodgeto() {
+		return dodge * 1.0 / 10 + "%";
+	}
 
-    public int getSpeed_action() {
-        return speed_action;
-    }
+	public int getSpeed_action() {
+		return speed_action;
+	}
 
-    public int getHP() {
-        return HP;
-    }
+	public int getHP() {
+		return HP;
+	}
 
-    public int getPhy_defense() {
-        return phy_defense;
-    }
+	public int getPhy_defense() {
+		return phy_defense;
+	}
 
-    public int getMag_defense() {
-        return mag_defense;
-    }
+	public int getMag_defense() {
+		return mag_defense;
+	}
 
 }

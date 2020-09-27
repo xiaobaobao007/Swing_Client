@@ -1,67 +1,64 @@
 package Panel;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 import ChooseChapter.ChooseLeave;
 import Enity.Message;
 
 public class MesPanel {
-    public static List<Message> messages = new ArrayList<>();
-    private Image background;
+	public static List<Message> messages = new ArrayList<>();
+	private final Image background;
 
-    public MesPanel() {
-        super();
-        background = new ImageIcon("resouce/image/map/map_ground.png").getImage();
-    }
+	public MesPanel() {
+		super();
+		background = new ImageIcon("resouce/image/map/map_ground.png").getImage();
+	}
 
-    public void Draw(Graphics g, ImageObserver o) {
+	public void Draw(Graphics g, ImageObserver o) {
 
-        int y = 400;
-        int x = 30;
-        g.drawImage(background, x, y, 270, 190, o);
+		int y = 400;
+		int x = 30;
+		g.drawImage(background, x, y, 270, 190, o);
 
-        int size = messages.size();
-        int mes_Size = 6;
-        int s = size > mes_Size ? mes_Size : size;
-        int h = s * 25 + 20;
-        for (; s > 0; s--) {
-            Message m = messages.get(size - s);
-            int id = m.getId();
-            if (id < 0) {
-                g.setColor(Color.RED);//ÏµÍ³
-            } else {
-                g.setColor(Color.WHITE);//ÓÃ»§
-            }
-            g.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 15));
-            String name = "";
-            if (id < 0) {
-                switch (id) {
-                    case -4:
-                        name = "ÉÌµê";
-                        break;
-                    case -3:
-                        name = "¸öÈË×°±¸";
-                        break;
-                    case -2:
-                        name = "±³°ü";
-                        break;
-                    case -1:
-                        name = "ÏµÍ³";
-                        break;
-                }
-            } else {
-                name = ChooseLeave.inToname(m.getId());
-            }
-            g.drawString("¡¾" + name + "¡¿:" + m.getMes(), x + 5, y + h - s * 25);
-        }
+		int size = messages.size();
+		int mes_Size = 6;
+		int s = size > mes_Size ? mes_Size : size;
+		int h = s * 25 + 20;
+		for (; s > 0; s--) {
+			Message m = messages.get(size - s);
+			int id = m.getId();
+			if (id < 0) {
+				g.setColor(Color.RED);//ç³»ç»Ÿ
+			} else {
+				g.setColor(Color.WHITE);//ç”¨æˆ·
+			}
+			g.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 15));
+			String name = "";
+			if (id < 0) {
+				switch (id) {
+					case -4:
+						name = "å•†åº—";
+						break;
+					case -3:
+						name = "ä¸ªäººè£…å¤‡";
+						break;
+					case -2:
+						name = "èƒŒåŒ…";
+						break;
+					case -1:
+						name = "ç³»ç»Ÿ";
+						break;
+				}
+			} else {
+				name = ChooseLeave.inToname(m.getId());
+			}
+			g.drawString("ã€" + name + "ã€‘:" + m.getMes(), x + 5, y + h - s * 25);
+		}
 
-    }
+	}
 }

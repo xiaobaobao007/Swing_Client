@@ -1,101 +1,99 @@
 package Enity;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.ImageObserver;
 
 public class HurtBlood {
 
-    private int blood;
-    private int time;
-    private int type;
-    private String info;
+	private int blood;
+	private int time;
+	private int type;
+	private String info;
 
-    public HurtBlood() {
-        super();
-    }
+	public HurtBlood() {
+		super();
+	}
 
-    public HurtBlood(int blood, int time, int type, String info) {
-        super();
-        this.blood = blood;
-        this.time = time;
-        this.type = type;
-        this.info = info;
-    }
+	public HurtBlood(int blood, int time, int type, String info) {
+		super();
+		this.blood = blood;
+		this.time = time;
+		this.type = type;
+		this.info = info;
+	}
 
-    public void Draw(Graphics g, int x, int y, ImageObserver o) {
-        if (type == 1) {//ÎïÀíÉËº¦ÌáÊ¾
-            g.setColor(Color.red);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("-" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 2) {//·¨ÊõÉËº¦ÌáÊ¾
-            g.setColor(Color.blue);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("-" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 3) {//ÕæÊµÉËº¦ÌáÊ¾
-            g.setColor(Color.white);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("-" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 4) {//Î´ÃüÖĞÌáÊ¾
-            g.setColor(Color.red);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("Î´ÃüÖĞ", x + 5, y + time * 5 - 50);
-        } else if (type == 5) {//±©»÷ÌáÊ¾
-            g.setColor(Color.red);
-            g.setFont(new Font("ËÎÌå", Font.BOLD + Font.ITALIC, 35));
-            g.drawString("-" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 6) {//¼ÓÀ¶ÌáÊ¾
-            g.setColor(Color.blue);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("+" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 7) {//¼ÓÑªÌáÊ¾
-            g.setColor(Color.green);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("+" + blood, x + 35, y + time * 5 - 50);
-        } else if (type == 8) {//±ù¶³ÌáÊ¾
-            g.setColor(Color.blue);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-            g.drawString("±ù¶³", x + 35, y + time * 5 - 50);
-        } else {
-            g.setColor(Color.yellow);
-            g.setFont(new Font("ËÎÌå", Font.BOLD, 20));
-            g.drawString("-" + blood, x + 35, y + time * 5 - 50);
-        }
-        time--;
-    }
+	public void Draw(Graphics g, int x, int y, ImageObserver o) {
+		if (type == 1) {//ç‰©ç†ä¼¤å®³æç¤º
+			g.setColor(Color.red);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("-" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 2) {//æ³•æœ¯ä¼¤å®³æç¤º
+			g.setColor(Color.blue);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("-" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 3) {//çœŸå®ä¼¤å®³æç¤º
+			g.setColor(Color.white);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("-" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 4) {//æœªå‘½ä¸­æç¤º
+			g.setColor(Color.red);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("æœªå‘½ä¸­", x + 5, y + time * 5 - 50);
+		} else if (type == 5) {//æš´å‡»æç¤º
+			g.setColor(Color.red);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD + Font.ITALIC, 35));
+			g.drawString("-" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 6) {//åŠ è“æç¤º
+			g.setColor(Color.blue);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("+" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 7) {//åŠ è¡€æç¤º
+			g.setColor(Color.green);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("+" + blood, x + 35, y + time * 5 - 50);
+		} else if (type == 8) {//å†°å†»æç¤º
+			g.setColor(Color.blue);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+			g.drawString("å†°å†»", x + 35, y + time * 5 - 50);
+		} else {
+			g.setColor(Color.yellow);
+			g.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
+			g.drawString("-" + blood, x + 35, y + time * 5 - 50);
+		}
+		time--;
+	}
 
-    public int getBlood() {
-        return blood;
-    }
+	public int getBlood() {
+		return blood;
+	}
 
-    public void setBlood(int blood) {
-        this.blood = blood;
-    }
+	public void setBlood(int blood) {
+		this.blood = blood;
+	}
 
-    public int getTime() {
-        return time;
-    }
+	public int getTime() {
+		return time;
+	}
 
-    public void setTime(int time) {
-        this.time = time;
-    }
+	public void setTime(int time) {
+		this.time = time;
+	}
 
-    public int getType() {
-        return type;
-    }
+	public int getType() {
+		return type;
+	}
 
-    public void setType(int type) {
-        this.type = type;
-    }
+	public void setType(int type) {
+		this.type = type;
+	}
 
-    public String getInfo() {
-        return info;
-    }
+	public String getInfo() {
+		return info;
+	}
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+	public void setInfo(String info) {
+		this.info = info;
+	}
 
 
 }

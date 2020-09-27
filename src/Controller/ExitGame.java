@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import ChooseChapter.ChooseChapter;
 import ChooseChapter.ChooseLeave;
@@ -15,51 +15,51 @@ import Panel.MesPanel;
 @SuppressWarnings("serial")
 public class ExitGame extends JPanel implements MouseListener {
 
-    public static int width = 455;
-    public static int height = 520;
-    private GameController gameContrller;
-    private int exit_change = 14;
+	public static int width = 455;
+	public static int height = 520;
+	private final GameController gameContrller;
+	private final int exit_change = 14;
 
-    public ExitGame(GameController gameContrller) {
-        super.addMouseListener(this);// ¼ÓÈëmouse¼àÌı
-        this.gameContrller = gameContrller;
-    }
+	public ExitGame(GameController gameContrller) {
+		super.addMouseListener(this);// åŠ å…¥mouseç›‘å¬
+		this.gameContrller = gameContrller;
+	}
 
-    private static void Return_Choose() {
-    	
-        ChooseLeave.changeState(GameController.own_cilent_id, 0);
-        GameStart.TF = true;
-        ClientStart.OutStreamAll("0:0304");
-        GameController.restNumbers();
-        ChooseChapter.restNumbers();
-        GameController.minleave=0;
-        MesPanel.messages = new ArrayList <>();
-    }
+	private static void Return_Choose() {
 
-    public void mouseClicked(MouseEvent e)// Êó±êµ¥»÷ÊÂ¼ş
-    {
-        if (e.getButton() == MouseEvent.BUTTON1)// ÅĞ¶ÏÊÇÊó±ê×ó¼ü°´ÏÂ
-        {
-            Return_Choose();
-        }
-    }
+		ChooseLeave.changeState(GameController.own_cilent_id, 0);
+		GameStart.TF = true;
+		ClientStart.OutStreamAll("0:0304");
+		GameController.restNumbers();
+		ChooseChapter.restNumbers();
+		GameController.minleave = 0;
+		MesPanel.messages = new ArrayList<>();
+	}
 
-    public void mouseEntered(MouseEvent e)// Êó±ê½øÈë×é¼ş
-    {
-        gameContrller.AddExit(exit_change);
-    }
+	public void mouseClicked(MouseEvent e)// é¼ æ ‡å•å‡»äº‹ä»¶
+	{
+		if (e.getButton() == MouseEvent.BUTTON1)// åˆ¤æ–­æ˜¯é¼ æ ‡å·¦é”®æŒ‰ä¸‹
+		{
+			Return_Choose();
+		}
+	}
 
-    public void mouseExited(MouseEvent e)// Êó±êÍË³ö×é¼ş
-    {
-        gameContrller.SubExit(exit_change);
-    }
+	public void mouseEntered(MouseEvent e)// é¼ æ ‡è¿›å…¥ç»„ä»¶
+	{
+		gameContrller.AddExit(exit_change);
+	}
 
-    public void mousePressed(MouseEvent e)// Êó±ê°´ÏÂ
-    {
-    }
+	public void mouseExited(MouseEvent e)// é¼ æ ‡é€€å‡ºç»„ä»¶
+	{
+		gameContrller.SubExit(exit_change);
+	}
 
-    public void mouseReleased(MouseEvent e)// Êó±êËÉ¿ª
-    {
-    }
+	public void mousePressed(MouseEvent e)// é¼ æ ‡æŒ‰ä¸‹
+	{
+	}
+
+	public void mouseReleased(MouseEvent e)// é¼ æ ‡æ¾å¼€
+	{
+	}
 
 }

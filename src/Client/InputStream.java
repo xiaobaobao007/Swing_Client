@@ -1,5 +1,7 @@
 package Client;
 
+import java.net.SocketException;
+
 import ChooseChapter.ChooseLeave;
 import ChooseGamer.ChooseStart;
 import Controller.GameController;
@@ -9,8 +11,6 @@ import Enity.Goods;
 import Enity.Message;
 import GameStart.GameStart;
 import Panel.MesPanel;
-
-import java.net.SocketException;
 
 public class InputStream implements Runnable {
 
@@ -32,13 +32,13 @@ public class InputStream implements Runnable {
 				if ((info = ClientStart.dis.readUTF().trim()) != null) {
 					b = info.split(";");
 					a = b[0].split(":");
-					// ¹ÖÎï²Ù×÷:00
+					// æ€ªç‰©æ“ä½œ:00
 					if (a[1].compareTo("0100") < 0) {
-						if (start && a[1].equals("0000")) {// ¹ÖÎï¹¥»÷
+						if (start && a[1].equals("0000")) {// æ€ªç‰©æ”»å‡»
 							if (GameController.Enemys.size() > 0) {
 								GameController.Enemys.get(Integer.valueOf(a[0])).people_attack();
 							}
-						} else if (start && a[1].equals("0001")) {// ¹ÖÎïÒÆ¶¯
+						} else if (start && a[1].equals("0001")) {// æ€ªç‰©ç§»åŠ¨
 							if (GameController.Enemys.size() > 0) {
 								if (a[2].equals("0")) {
 									GameController.Enemys.get(Integer.valueOf(a[0])).setX(Integer.valueOf(a[3]));
@@ -49,19 +49,19 @@ public class InputStream implements Runnable {
 						} else if (a[1].equals("0002")) {
 						}
 					}
-					// ¼üÅÌ²Ù×÷:01
+					// é”®ç›˜æ“ä½œ:01
 					else if (a[1].compareTo("0200") < 0) {
-						if (a[1].equals("0101")) {// ÆäËûÓÃ»§µÄ²Ù×÷
+						if (a[1].equals("0101")) {// å…¶ä»–ç”¨æˆ·çš„æ“ä½œ
 							GameController.Change_Teams(Integer.valueOf(a[0]), Integer.valueOf(a[2]),
 									Integer.valueOf(a[3]));
-						} else if (a[1].equals("0102")) {// ÆäËûÓÃ»§ÍË³ö
+						} else if (a[1].equals("0102")) {// å…¶ä»–ç”¨æˆ·é€€å‡º
 							GameController.Change_Teams(Integer.valueOf(a[0]));
 						}
 					}
-					// ¸öÈËÊı¾İ:02
+					// ä¸ªäººæ•°æ®:02
 					else if (a[1].compareTo("0300") < 0) {
-						if (a[1].equals("0201")) {// ½ÓÊÜ·şÎñÆ÷µÄ¸öÈËÊı¾İ
-							System.out.print("¿ªÊ¼¼ÓÔØ¸öÈËĞÅÏ¢£º");
+						if (a[1].equals("0201")) {// æ¥å—æœåŠ¡å™¨çš„ä¸ªäººæ•°æ®
+							System.out.print("å¼€å§‹åŠ è½½ä¸ªäººä¿¡æ¯ï¼š");
 							String[] c = b[1].split(":");
 							int[] q = new int[23];
 							for (int i = 0; i <= 22; i++) {
@@ -69,9 +69,9 @@ public class InputStream implements Runnable {
 									q[i] = Integer.valueOf(c[i]);
 							}
 							GameController.start_own(q, c[4]);
-							System.out.println("³É¹¦");
-						} else if (a[1].equals("0202")) {// ½ÓÊÜĞÂÌí¼ÓµÄ¶ÓÓÑ
-							System.out.print("¿ªÊ¼¼ÓÔØ¶ÓÓÑÊı¾İ£º");
+							System.out.println("æˆåŠŸ");
+						} else if (a[1].equals("0202")) {// æ¥å—æ–°æ·»åŠ çš„é˜Ÿå‹
+							System.out.print("å¼€å§‹åŠ è½½é˜Ÿå‹æ•°æ®ï¼š");
 							System.out.println(info);
 							int nums = Integer.valueOf(a[0]);
 							int[][] Ene = new int[nums][22];
@@ -86,44 +86,44 @@ public class InputStream implements Runnable {
 								name[i] = c[6];
 							}
 							GameController.start_Teams(nums, Ene, name);
-							System.out.println("Ìí¼Ó³É¹¦£¬Ìí¼ÓÁË" + nums + "Ãû¶ÓÓÑ¡£");
-						} else if (a[1].equals("0203")) {// ÁÄÌìÄÚÈİ
+							System.out.println("æ·»åŠ æˆåŠŸï¼Œæ·»åŠ äº†" + nums + "åé˜Ÿå‹ã€‚");
+						} else if (a[1].equals("0203")) {// èŠå¤©å†…å®¹
 
-						} else if (a[1].equals("0204")) {// ¸öÈËÎïÆ·ĞÅÏ¢
+						} else if (a[1].equals("0204")) {// ä¸ªäººç‰©å“ä¿¡æ¯
 							Thread.sleep(1000);
-							System.out.print("¿ªÊ¼¼ÓÔØÉÌÆ·ĞÅÏ¢£º");
+							System.out.print("å¼€å§‹åŠ è½½å•†å“ä¿¡æ¯ï¼š");
 							if (Shop.goods.size() == 0) {
-								System.out.println("Ìí¼ÓÊ§°Ü£¬ÖØĞÂÇëÇóĞÅÏ¢¡£");
-								ClientStart.OutStreamAll(GameController.own_cilent_id + ":0501");// ¼ÓÔØÉÌµêĞÅÏ¢
+								System.out.println("æ·»åŠ å¤±è´¥ï¼Œé‡æ–°è¯·æ±‚ä¿¡æ¯ã€‚");
+								ClientStart.OutStreamAll(GameController.own_cilent_id + ":0501");// åŠ è½½å•†åº—ä¿¡æ¯
 							} else {
 								GameController.own_goods(a[2]);
-								System.out.println("Ìí¼Ó³É¹¦£¬Ìí¼ÓÁË" + Shop.goods.size() + "ÉÌÆ·¡£");
+								System.out.println("æ·»åŠ æˆåŠŸï¼Œæ·»åŠ äº†" + Shop.goods.size() + "å•†å“ã€‚");
 							}
 						} else if (a[1].equals("0205")) {//
 //							GameController.own_cilent_people_index = a[0];
-						} else if (a[1].equals("0206")) {// ½ÓÊÜ·şÎñÆ÷¼ÓÔØ¸öÈËÇëÇó
-						} else if (a[1].equals("0207")) {// ÆäËûÍæ¼Ò×¼±¸×´Ì¬
+						} else if (a[1].equals("0206")) {// æ¥å—æœåŠ¡å™¨åŠ è½½ä¸ªäººè¯·æ±‚
+						} else if (a[1].equals("0207")) {// å…¶ä»–ç©å®¶å‡†å¤‡çŠ¶æ€
 							ChooseLeave.OtherPeople(Integer.valueOf(a[0]), Integer.valueOf(a[2]), a[3], a[4]);
-						} else if (a[1].equals("0208")) {// ¸öÈË×ø±ê³õÊ¼»¯
+						} else if (a[1].equals("0208")) {// ä¸ªäººåæ ‡åˆå§‹åŒ–
 							GameController.own.setX(Integer.valueOf(a[2]));
 							GameController.own.setY(Integer.valueOf(a[3]));
-						} else if (a[1].equals("0209")) {// ÆäËûÍæ¼Ò×ø±ê½øĞĞ³õÊ¼»¯
+						} else if (a[1].equals("0209")) {// å…¶ä»–ç©å®¶åæ ‡è¿›è¡Œåˆå§‹åŒ–
 							GameController.Change_Teams(Integer.valueOf(a[0]), 0, Integer.valueOf(a[2]));
 							GameController.Change_Teams(Integer.valueOf(a[0]), 1, Integer.valueOf(a[3]));
 						}
 					}
-					// ¹ÖÎïÊı¾İ:03
+					// æ€ªç‰©æ•°æ®:03
 					else if (a[1].compareTo("0400") < 0) {
-						if (a[1].equals("0301")) {// ¹ÖÎïµôÂä×°±¸
+						if (a[1].equals("0301")) {// æ€ªç‰©æ‰è½è£…å¤‡
 							GameController.add_map_goods(Integer.valueOf(a[2]), Integer.valueOf(a[3]), a[4]);
 						} else if (a[1].equals("0302")) {
 //							GameController.deleteOneEnemy(Integer.valueOf(a[0]));
 						}
 					}
-					// ÓÎÏ·Êı¾İ:04
+					// æ¸¸æˆæ•°æ®:04
 					else if (a[1].compareTo("0500") < 0) {
-						if (a[1].equals("0401")) {// Ìí¼Ó¹ÖÎïÊı¾İ
-							System.out.print("¿ªÊ¼¼ÓÔØ¹ÖÎïÊı¾İ£º");
+						if (a[1].equals("0401")) {// æ·»åŠ æ€ªç‰©æ•°æ®
+							System.out.print("å¼€å§‹åŠ è½½æ€ªç‰©æ•°æ®ï¼š");
 							int leave = Integer.valueOf(a[0]);
 							int[][] Ene = new int[leave][23];
 							String[] name = new String[21];
@@ -136,33 +136,33 @@ public class InputStream implements Runnable {
 								name[i] = c[4];
 							}
 							GameController.start_enemy(leave, Ene, name);
-							System.out.println("Ìí¼Ó³É¹¦£¬Ìí¼ÓÁË¸ö" + leave + "¹ÖÎï¡£");
-						} else if (a[1].equals("0402")) {// ×ÜÓÎÏ·¿ªÊ¼
+							System.out.println("æ·»åŠ æˆåŠŸï¼Œæ·»åŠ äº†ä¸ª" + leave + "æ€ªç‰©ã€‚");
+						} else if (a[1].equals("0402")) {// æ€»æ¸¸æˆå¼€å§‹
 							new GameStart();
 							GameStart.game_thread.start();
 							start = true;
-						} else if (a[1].equals("0403")) {// ÁÄÌìÊÒÄÚÈİ
+						} else if (a[1].equals("0403")) {// èŠå¤©å®¤å†…å®¹
 							MesPanel.messages.add(new Message(Integer.valueOf(a[0]), a[2]));
-						} else if (a[1].equals("0404")) {// ÔÊĞí¿ªÊ¼·µ»Ø¹Ø¿¨½çÃæ
+						} else if (a[1].equals("0404")) {// å…è®¸å¼€å§‹è¿”å›å…³å¡ç•Œé¢
 							GameStart.game_thread.interrupt();
 							for (EnemyPeople e : GameController.Enemys) {
 								e.getThread().interrupt();
 							}
 							new ChooseStart();
-						} else if (a[1].equals("0405")) {// ¹Ø¿¨Êı¾İ£ºÌáÊ¾
+						} else if (a[1].equals("0405")) {// å…³å¡æ•°æ®ï¼šæç¤º
 							int size = Integer.valueOf(a[0]);
 							for (int i = 0; i < size; i++) {
 								String[] c = b[i + 1].split(":");
 								GameStart.Infos[i] = c[1];
 								GameController.Lastnums[i] = c[2].charAt(0) - '0';
 							}
-						} else if (a[1].equals("0406")) {// ¿ªÊ¼ÓÎÏ·°´Å¥
+						} else if (a[1].equals("0406")) {// å¼€å§‹æ¸¸æˆæŒ‰é’®
 							ChooseLeave.playGame();
 						}
 					}
-					// ÉÌ³ÇÎïÆ·:05
+					// å•†åŸç‰©å“:05
 					else if (a[1].compareTo("0600") < 0) {
-						if (a[1].equals("0501")) {// ¼ÓÔØÉÌ³ÇÊı¾İ
+						if (a[1].equals("0501")) {// åŠ è½½å•†åŸæ•°æ®
 							int size = Integer.valueOf(a[0]);
 							for (int i = 0; i < size; i++) {
 								String[] c = b[i + 1].split(":");
@@ -179,9 +179,9 @@ public class InputStream implements Runnable {
 
 			}
 		} catch (SocketException e) {
-			System.out.println("Á¬½ÓÖĞ¶Ï");
+			System.out.println("è¿æ¥ä¸­æ–­");
 		} catch (Exception e1) {
-			System.out.println("Çë¼°Ê±ĞŞ¸Ä´íÎó´úÂë");
+			System.out.println("è¯·åŠæ—¶ä¿®æ”¹é”™è¯¯ä»£ç ");
 			e1.printStackTrace();
 		} finally {
 			System.err.println(info);

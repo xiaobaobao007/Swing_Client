@@ -11,66 +11,66 @@ import Panel.InformationP;
 @SuppressWarnings("serial")
 public class Information extends JPanel implements MouseListener {
 
-    public static JFrame frame;
-    public static InformationP informationP;
-    private static boolean open = true;
+	public static JFrame frame;
+	public static InformationP informationP;
+	private static boolean open = true;
 
-    public Information() {
-        super.addMouseListener(this);// ¼ÓÈëmouse¼àÌı
-    }
+	public Information() {
+		super.addMouseListener(this);// åŠ å…¥mouseç›‘å¬
+	}
 
-    private static void open_back() {
+	private static void open_back() {
 
-        if (frame != null) {
-            frame.dispose();
-            frame = null;
-        }
-        frame = new JFrame("Information");
-        Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = GameController.panel_width;
-        int x = (int) (ScreenSize.getWidth() - width) / 3;
-        int height = GameController.panel_height;
-        int y = (int) (ScreenSize.getHeight() - height) / 3;
-        frame.setLocation(x, y);
-        frame.setSize(600, 530);
-        frame.setResizable(false);
-        frame.setAlwaysOnTop(true);
-        informationP = new InformationP();
-        frame.add(informationP);
-        Image img = new ImageIcon("resouce/image/others/mouse.png").getImage();
-        Cursor cu = Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0, 0), null);
-        frame.setCursor(cu);
-        frame.setVisible(true);// 30, 550, 260, 35
-    }
+		if (frame != null) {
+			frame.dispose();
+			frame = null;
+		}
+		frame = new JFrame("Information");
+		Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int width = GameController.panel_width;
+		int x = (int) (ScreenSize.getWidth() - width) / 3;
+		int height = GameController.panel_height;
+		int y = (int) (ScreenSize.getHeight() - height) / 3;
+		frame.setLocation(x, y);
+		frame.setSize(600, 530);
+		frame.setResizable(false);
+		frame.setAlwaysOnTop(true);
+		informationP = new InformationP();
+		frame.add(informationP);
+		Image img = new ImageIcon("resouce/image/others/mouse.png").getImage();
+		Cursor cu = Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0, 0), null);
+		frame.setCursor(cu);
+		frame.setVisible(true);// 30, 550, 260, 35
+	}
 
-    public void mouseClicked(MouseEvent e)// Êó±êµ¥»÷ÊÂ¼ş
-    {
-        if (e.getButton() == MouseEvent.BUTTON1)// ÅĞ¶ÏÊÇÊó±ê×ó¼ü°´ÏÂ
-        {
-            if (open) {
-                open_back();
-                open = false;
-            } else {
-                frame.dispose();
-                open = true;
-            }
-        }
-    }
+	public void mouseClicked(MouseEvent e)// é¼ æ ‡å•å‡»äº‹ä»¶
+	{
+		if (e.getButton() == MouseEvent.BUTTON1)// åˆ¤æ–­æ˜¯é¼ æ ‡å·¦é”®æŒ‰ä¸‹
+		{
+			if (open) {
+				open_back();
+				open = false;
+			} else {
+				frame.dispose();
+				open = true;
+			}
+		}
+	}
 
-    public void mouseEntered(MouseEvent e)// Êó±ê½øÈë×é¼ş
-    {
-    }
+	public void mouseEntered(MouseEvent e)// é¼ æ ‡è¿›å…¥ç»„ä»¶
+	{
+	}
 
-    public void mouseExited(MouseEvent e)// Êó±êÍË³ö×é¼ş
-    {
-    }
+	public void mouseExited(MouseEvent e)// é¼ æ ‡é€€å‡ºç»„ä»¶
+	{
+	}
 
-    public void mousePressed(MouseEvent e)// Êó±ê°´ÏÂ
-    {
-    }
+	public void mousePressed(MouseEvent e)// é¼ æ ‡æŒ‰ä¸‹
+	{
+	}
 
-    public void mouseReleased(MouseEvent e)// Êó±êËÉ¿ª
-    {
-    }
+	public void mouseReleased(MouseEvent e)// é¼ æ ‡æ¾å¼€
+	{
+	}
 
 }

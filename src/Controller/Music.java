@@ -1,10 +1,10 @@
 package Controller;
 
-import javazoom.jl.player.Player;
-
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.util.Random;
+
+import javazoom.jl.player.Player;
 
 public class Music {
 

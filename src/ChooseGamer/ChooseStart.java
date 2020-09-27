@@ -1,40 +1,40 @@
 package ChooseGamer;
 
+import java.awt.*;
+
+import Client.ClientStart;
 import Controller.GameController;
 import Controller.GameJFrame;
-import Client.ClientStart;
-
-import java.awt.*;
 
 public class ChooseStart {
 
-    public static int width = GameController.panel_width;
-    public static int height = GameController.panel_height;
-    private static boolean TF = true;
+	public static int width = GameController.panel_width;
+	public static int height = GameController.panel_height;
+	private static boolean TF = true;
 
-    public ChooseStart() {
-        if (TF) {
-            PrepareGame();
-            GameJFrame.init();
-        }
-        // int i = GameController.Owns.size();
-        // for (int j = 0; j < i; j++) {
-        GameJFrame.restJFrame("ÇëÑ¡ÔñÄúµÄÓ¢ÐÛ");
-        GameJFrame.GameJFrame.add(new ChooseController(0, true));
-        // }
-        // this.add(new ChooseController(i, false, this));
-        GameJFrame.toView();
-        if (TF) {
-            Insets insets = GameJFrame.GameJFrame.getInsets();
-            GameJFrame.top = insets.top;
-            GameJFrame.left = insets.left;
-            TF = false;
-        }
-    }
+	public ChooseStart() {
+		if (TF) {
+			PrepareGame();
+			GameJFrame.init();
+		}
+		// int i = GameController.Owns.size();
+		// for (int j = 0; j < i; j++) {
+		GameJFrame.restJFrame("è¯·é€‰æ‹©æ‚¨çš„è‹±é›„");
+		GameJFrame.GameJFrame.add(new ChooseController(0, true));
+		// }
+		// this.add(new ChooseController(i, false, this));
+		GameJFrame.toView();
+		if (TF) {
+			Insets insets = GameJFrame.GameJFrame.getInsets();
+			GameJFrame.top = insets.top;
+			GameJFrame.left = insets.left;
+			TF = false;
+		}
+	}
 
-    private void PrepareGame() {
-        ClientStart.OutStreamAll(GameController.own_cilent_id + ":0501");// ¼ÓÔØÉÌµêÐÅÏ¢
-        ClientStart.OutStreamAll(GameController.own_cilent_id + ":0403");// ¼ÓÔØ¹Ø¿¨ÐÅÏ¢
+	private void PrepareGame() {
+		ClientStart.OutStreamAll(GameController.own_cilent_id + ":0501");// åŠ è½½å•†åº—ä¿¡æ¯
+		ClientStart.OutStreamAll(GameController.own_cilent_id + ":0403");// åŠ è½½å…³å¡ä¿¡æ¯
 
-    }
+	}
 }

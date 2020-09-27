@@ -1,16 +1,16 @@
 package Controller;
 
-import ChooseChapter.ChooseLeave;
-import ChooseGamer.ChooseStart;
-import Enity.*;
-import Panel.MesPanel;
-
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.List;
 import java.util.Vector;
 
 import javax.swing.*;
+
+import ChooseChapter.ChooseLeave;
+import ChooseGamer.ChooseStart;
+import Enity.*;
+import Panel.MesPanel;
 
 public class GameController extends JPanel implements Runnable {
 
@@ -41,11 +41,11 @@ public class GameController extends JPanel implements Runnable {
 	static int input_width = 255;
 	static int input_height = 30;
 	public static int minleave;
-	private static Vector<TeamPeople> Teammates = new Vector<>();
+	private static final Vector<TeamPeople> Teammates = new Vector<>();
 	private static MesPanel mesPanel;
 	private static int online_people = 0;
-	private static int[][] goods_id = new int[30][30];
-	private static int[] online = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	private static final int[][] goods_id = new int[30][30];
+	private static final int[] online = {0, 0, 0, 0, 0, 0, 0, 0};
 	private static int nums = -1;
 	// public HashMap<EnemyPeople, Thread> Thread_one;
 //    public GameMap map = new GameMap();
@@ -59,12 +59,12 @@ public class GameController extends JPanel implements Runnable {
 	private int shop_height = 80;
 	private int poor_x;
 	private int poor_y;
-	private Image shop;// ÉÌµêÍ¼±ê
-	private Image backpack;// ±³°üÍ¼±ê
-	private Image map_background;// Ğ¡µØÍ¼±³¾°
-	private Image information;// ¸öÈËĞÅÏ¢°´Å¥
-	private Image exit;// ÍË³ö°´Å¥
-	private Image InputBox;// ÁÄÌì¿ò
+	private Image shop;// å•†åº—å›¾æ ‡
+	private Image backpack;// èƒŒåŒ…å›¾æ ‡
+	private Image map_background;// å°åœ°å›¾èƒŒæ™¯
+	private Image information;// ä¸ªäººä¿¡æ¯æŒ‰é’®
+	private Image exit;// é€€å‡ºæŒ‰é’®
+	private Image InputBox;// èŠå¤©æ¡†
 
 	public GameController() {
 		GameJFrame.GameJFrame.setFocusable(true);
@@ -87,7 +87,7 @@ public class GameController extends JPanel implements Runnable {
 	public static void start_own(int[] q, String name) {
 		ChooseLeave.leaves = Integer.valueOf(name.split(",")[1]);
 		name = name.split(",")[0];
-		ChooseLeave.info = name + "ÒÑ×¼±¸¾ÍĞ÷";
+		ChooseLeave.info = name + "å·²å‡†å¤‡å°±ç»ª";
 		OwnPeople o = new OwnPeople(q[0], q[1], q[2], q[3], name, q[5], new Attribute(q[6], q[7], q[8], q[9], q[10],
 				q[11], q[12], q[13], q[14], q[15], q[16], q[17], q[18], q[19], q[20], q[21], q[22]));
 		ChooseLeave.restPeople(o.getPeople(), name);
@@ -127,13 +127,13 @@ public class GameController extends JPanel implements Runnable {
 		GameController.minleave += 1;
 		int leftleave = Lastnums[leave - 1] - minleave;
 		if (leftleave == 0) {
-			MesPanel.messages.add(new Message(-1, "ÕâÊÇ×îºóÒ»¹Ø£¬ÇëÍË³ö½øĞĞÏÂÒ»¹ØÅ¶"));
+			MesPanel.messages.add(new Message(-1, "è¿™æ˜¯æœ€åä¸€å…³ï¼Œè¯·é€€å‡ºè¿›è¡Œä¸‹ä¸€å…³å“¦"));
 			GameController.minleave = 0;
 			if (ChooseLeave.leaves == leave) {
 				ChooseLeave.leaves++;
 			}
 		} else
-			MesPanel.messages.add(new Message(-1, "¿ªÊ¼µÚ" + minleave + "Ğ¡¹Ø£¬Ê£Óà" + leftleave + "Ğ¡¹Ø"));
+			MesPanel.messages.add(new Message(-1, "å¼€å§‹ç¬¬" + minleave + "å°å…³ï¼Œå‰©ä½™" + leftleave + "å°å…³"));
 		Enemys = new Vector<>();
 		for (int i = 0; i < e_nums; i++) {
 			EnemyPeople Enemy = new EnemyPeople(Ene[i][0], Ene[i][1], Ene[i][2], Ene[i][3], name[i], Ene[i][5],
@@ -177,23 +177,23 @@ public class GameController extends JPanel implements Runnable {
 //        System.out.println("id = [" + id + "], operate = [" + operate + "], info = [" + info + "]");
 		TeamPeople team = Teammates.get(online[id]);
 		switch (operate) {
-		case 0:
-			team.setX(info);
-			break;
-		case 1:
-			team.setY(info);
-			break;
-		case 2:
-			team.people_attack();
-			break;
-		case 3:
-			team.Magic_attack();
-			break;
-		case 4:
-			team.pullGoods();
-			break;
-		default:
-			break;
+			case 0:
+				team.setX(info);
+				break;
+			case 1:
+				team.setY(info);
+				break;
+			case 2:
+				team.people_attack();
+				break;
+			case 3:
+				team.Magic_attack();
+				break;
+			case 4:
+				team.pullGoods();
+				break;
+			default:
+				break;
 		}
 		if (operate == 0) {
 			team.setX(info);
@@ -287,40 +287,40 @@ public class GameController extends JPanel implements Runnable {
 //				poor_y = -800;
 //			}
 
-			DrawBackGround(g);// ±³¾°Í¼
+			DrawBackGround(g);// èƒŒæ™¯å›¾
 
-			DrawGoods(g, map_goods, this);// ÎïÆ·µôÂä
+			DrawGoods(g, map_goods, this);// ç‰©å“æ‰è½
 
-			DrawEnemys(g, Enemys, this);// ¹ÖÎï
+			DrawEnemys(g, Enemys, this);// æ€ªç‰©
 
 			if (Teammates != null && Teammates.size() > 0)
-				DrawTeams(g, Teammates, this);// ¶ÓÓÑ
+				DrawTeams(g, Teammates, this);// é˜Ÿå‹
 
 			if (own.getAlive())
-				own.Draw(g, poor_own_x, poor_own_y, this);// ×Ô¼º
+				own.Draw(g, poor_own_x, poor_own_y, this);// è‡ªå·±
 
 			Skills.Draw(g, poor_x, poor_y, this);
 
-			mesPanel.Draw(g, this);// ÁÄÌìĞÅÏ¢
+			mesPanel.Draw(g, this);// èŠå¤©ä¿¡æ¯
 
-			g.drawImage(InputBox, input_x, input_y, input_width, input_height, this);// ÊäÈë¿ò
+			g.drawImage(InputBox, input_x, input_y, input_width, input_height, this);// è¾“å…¥æ¡†
 
-			g.drawImage(shop, shop_x, shop_y, shop_width, shop_height, this);// ÉÌµê
+			g.drawImage(shop, shop_x, shop_y, shop_width, shop_height, this);// å•†åº—
 
-			g.drawImage(backpack, pack_x, pack_y, pack_width, pack_height, this);// ±³°ü
+			g.drawImage(backpack, pack_x, pack_y, pack_width, pack_height, this);// èƒŒåŒ…
 
 			int smap_height = 180;
 			int smap_width = 260;
 			int smap_y = 20;
 			int smap_x = 937;
-			g.drawImage(map_background, smap_x, smap_y, smap_width, smap_height, this);// Ğ¡µØÍ¼
+			g.drawImage(map_background, smap_x, smap_y, smap_width, smap_height, this);// å°åœ°å›¾
 
-			g.drawImage(information, info_x, info_y, info_width, info_height, this);// ¸öÈËĞÅÏ¢
+			g.drawImage(information, info_x, info_y, info_width, info_height, this);// ä¸ªäººä¿¡æ¯
 
-			g.drawImage(exit, exit_x, exit_y, exit_width, exit_height, this);// ÍË³ö
+			g.drawImage(exit, exit_x, exit_y, exit_width, exit_height, this);// é€€å‡º
 			// System.out.println(System.currentTimeMillis()-a);
 			// g.setColor(Color.RED);
-			// g.setFont(new Font("ËÎÌå", Font.BOLD, 30));
+			// g.setFont(new Font("å®‹ä½“", Font.BOLD, 30));
 			// a=1000/(System.currentTimeMillis()-a);
 			// g.drawString(""+a,10,50);
 
@@ -383,7 +383,7 @@ public class GameController extends JPanel implements Runnable {
 //				i++;
 //				boolean qq = true;
 //				if (i > 60) {
-//					i = 0;// Ã¿3Ãë
+//					i = 0;// æ¯3ç§’
 //					nums++;
 ////					System.out.println(AliveEnemy);
 //					qq = true;
@@ -397,10 +397,10 @@ public class GameController extends JPanel implements Runnable {
 //				if (leave >= ChooseLeave.leaves)
 //					ClientStart.OutStreamAll(own_cilent_id + ":0604:" + (leave + 1));
 //				ChooseLeave.leaves++;
-//				MesPanel.messages.add(new Message(1, "ÏµÍ³", "ÒÑÊÇ×îºóÒ»Ğ¡¹Ø"));
+//				MesPanel.messages.add(new Message(1, "ç³»ç»Ÿ", "å·²æ˜¯æœ€åä¸€å°å…³"));
 
 			} catch (Exception e) {
-				System.out.println("ÓÎÏ·Ö÷Á÷³Ì¹Ø±Õ");
+				System.out.println("æ¸¸æˆä¸»æµç¨‹å…³é—­");
 			}
 			this.repaint();
 		}

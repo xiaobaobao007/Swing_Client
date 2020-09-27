@@ -1,11 +1,10 @@
 package Client;
 
-import Controller.GameJFrame;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.*;
 
 public class MapPoint extends JPanel implements MouseListener {
 

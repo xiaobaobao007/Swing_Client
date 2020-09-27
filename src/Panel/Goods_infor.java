@@ -1,95 +1,93 @@
 package Panel;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import Enity.Goods;
 
 public class Goods_infor extends JPanel {
 
-    private static final long serialVersionUID = 1L;
-    public static Goods goods;
-    private static List<Color> color_leave;
-    private static String[] equip = Goods.equip[1];
-    private static String[] leave = {"ÆÕÍ¨", "Ç¿»¯", "Ï¡ÓĞ", "º±¼û", "Ê·Ê«"};
+	private static final long serialVersionUID = 1L;
+	public static Goods goods;
+	private static List<Color> color_leave;
+	private static final String[] equip = Goods.equip[1];
+	private static final String[] leave = {"æ™®é€š", "å¼ºåŒ–", "ç¨€æœ‰", "ç½•è§", "å²è¯—"};
 
-    Goods_infor() {
-        this.setSize(400, 650);
-        this.setBackground(new Color(34, 43, 64));
-    }
+	Goods_infor() {
+		this.setSize(400, 650);
+		this.setBackground(new Color(34, 43, 64));
+	}
 
-    public Goods_infor(String info) {
-        color_leave = new ArrayList<>();
-        color_leave.add(Color.WHITE);// ÆÕÍ¨¡£°×É«
-        color_leave.add(Color.BLUE);// Ç¿»¯¡£À¶É«
-        color_leave.add(new Color(128, 0, 255));// Ï¡ÓĞ¡£×ÏÉ«
-        color_leave.add(Color.PINK);// º±¼û¡£·ÛÉ«
-        color_leave.add(Color.ORANGE);// Ê·Ê«¡£³ÈÉ«
-    }
+	public Goods_infor(String info) {
+		color_leave = new ArrayList<>();
+		color_leave.add(Color.WHITE);// æ™®é€šã€‚ç™½è‰²
+		color_leave.add(Color.BLUE);// å¼ºåŒ–ã€‚è“è‰²
+		color_leave.add(new Color(128, 0, 255));// ç¨€æœ‰ã€‚ç´«è‰²
+		color_leave.add(Color.PINK);// ç½•è§ã€‚ç²‰è‰²
+		color_leave.add(Color.ORANGE);// å²è¯—ã€‚æ©™è‰²
+	}
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        g.setColor(new Color(210, 213, 142));
-        g.fill3DRect(95, 40, 50, 50, true);
-        g.drawImage(goods.getImage(), 95, 40, 50, 50, this);
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(new Color(210, 213, 142));
+		g.fill3DRect(95, 40, 50, 50, true);
+		g.drawImage(goods.getImage(), 95, 40, 50, 50, this);
 
-        int l = goods.getLeave();
-        g.setColor(color_leave.get(l - 1));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 20));
-        g.drawString(goods.getName(), 155, 57);
-        g.drawString(leave[goods.getLeave() - 1] + "   " + equip[goods.getType()], 155, 87);
+		int l = goods.getLeave();
+		g.setColor(color_leave.get(l - 1));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
+		g.drawString(goods.getName(), 155, 57);
+		g.drawString(leave[goods.getLeave() - 1] + "   " + equip[goods.getType()], 155, 87);
 
-        g.setColor(new Color(128, 173, 180));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 25));
-        g.drawString("»ù´¡ÊôĞÔ", 135, 133);
-        g.drawString("×°±¸ËµÃ÷", 135, 440);
+		g.setColor(new Color(128, 173, 180));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 25));
+		g.drawString("åŸºç¡€å±æ€§", 135, 133);
+		g.drawString("è£…å¤‡è¯´æ˜", 135, 440);
 
-        g.setColor(new Color(186, 187, 181));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 20));
-        int y1 = 180;// ÊôĞÔÃû³Æ
-        int x1 = 135;
-        g.drawString("Á¦Á¿:", x1, y1);
-        int z1 = 35;
-        g.drawString("Ä§Á¦:", x1, z1 + y1);
-        g.drawString("¼¼ÇÉ:", x1, z1 * 2 + y1);
-        g.drawString("ËÙ¶È:", x1, z1 * 3 + y1);
-        g.drawString("ÌåÖÊ:", x1, z1 * 4 + y1);
-        g.drawString("»¤¼×:", x1, z1 * 5 + y1);
-        g.drawString("¿¹ĞÔ:", x1, z1 * 6 + y1);
+		g.setColor(new Color(186, 187, 181));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
+		int y1 = 180;// å±æ€§åç§°
+		int x1 = 135;
+		g.drawString("åŠ›é‡:", x1, y1);
+		int z1 = 35;
+		g.drawString("é­”åŠ›:", x1, z1 + y1);
+		g.drawString("æŠ€å·§:", x1, z1 * 2 + y1);
+		g.drawString("é€Ÿåº¦:", x1, z1 * 3 + y1);
+		g.drawString("ä½“è´¨:", x1, z1 * 4 + y1);
+		g.drawString("æŠ¤ç”²:", x1, z1 * 5 + y1);
+		g.drawString("æŠ—æ€§:", x1, z1 * 6 + y1);
 
-        g.setColor(new Color(35, 176, 152));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 20));
-        int y2 = 180;// ÊôĞÔÃû×Ö
-        int x2 = 195;
-        g.drawString(goods.getPower() + "", x2, y2);
-        int z2 = 35;
-        g.drawString(goods.getMagic() + "", x2, z2 + y2);
-        g.drawString(goods.getSkill() + "", x2, z2 * 2 + y2);
-        g.drawString(goods.getSpeed() + "", x2, z2 * 3 + y2);
-        g.drawString(goods.getPhysical() + "", x2, z2 * 4 + y2);
-        g.drawString(goods.getPhysical() + "", x2, z2 * 5 + y2);
-        g.drawString(goods.getResistance() + "", x2, z2 * 6 + y2);
-        String info = goods.getNote();
-        int z3 = 15;
-        int lenth = info.length() / z3;
-        for (int i = 0; i <= lenth; i++) {
-            int y3 = 500;// ËµÃ÷
-            int x3 = 40;
-            if (i == lenth)
-                g.drawString(info.substring(i * z3), x3, 35 * i + y3);
-            else
-                g.drawString(info.substring(i * z3, (i + 1) * z3), x3, 35 * i + y3);
-        }
+		g.setColor(new Color(35, 176, 152));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
+		int y2 = 180;// å±æ€§åå­—
+		int x2 = 195;
+		g.drawString(goods.getPower() + "", x2, y2);
+		int z2 = 35;
+		g.drawString(goods.getMagic() + "", x2, z2 + y2);
+		g.drawString(goods.getSkill() + "", x2, z2 * 2 + y2);
+		g.drawString(goods.getSpeed() + "", x2, z2 * 3 + y2);
+		g.drawString(goods.getPhysical() + "", x2, z2 * 4 + y2);
+		g.drawString(goods.getPhysical() + "", x2, z2 * 5 + y2);
+		g.drawString(goods.getResistance() + "", x2, z2 * 6 + y2);
+		String info = goods.getNote();
+		int z3 = 15;
+		int lenth = info.length() / z3;
+		for (int i = 0; i <= lenth; i++) {
+			int y3 = 500;// è¯´æ˜
+			int x3 = 40;
+			if (i == lenth)
+				g.drawString(info.substring(i * z3), x3, 35 * i + y3);
+			else
+				g.drawString(info.substring(i * z3, (i + 1) * z3), x3, 35 * i + y3);
+		}
 
-        g.setColor(new Color(186, 180, 96));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 20));
-        g.drawString("ÉÌÆ·ÊÛ¼Û:", 230, 600);
-        g.drawString(goods.getMoney() + "", 340, 600);
-    }
+		g.setColor(new Color(186, 180, 96));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
+		g.drawString("å•†å“å”®ä»·:", 230, 600);
+		g.drawString(goods.getMoney() + "", 340, 600);
+	}
 }

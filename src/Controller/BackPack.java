@@ -11,82 +11,82 @@ import Panel.PackPanel;
 @SuppressWarnings("serial")
 public class BackPack extends JPanel implements MouseListener {
 
-    public static int width = 455;
-    public static int height = 520;
-    public static JFrame frame;
-    public static PackPanel packPanel;
-    private static boolean open_pack = true;
-    private GameController gameContrller;
-    private int pack_change;
+	public static int width = 455;
+	public static int height = 520;
+	public static JFrame frame;
+	public static PackPanel packPanel;
+	private static boolean open_pack = true;
+	private final GameController gameContrller;
+	private final int pack_change;
 
-    public BackPack(GameController gameContrller) {
-        super.addMouseListener(this);// ¼ÓÈëmouse¼àÌı
-        this.gameContrller = gameContrller;
-        pack_change = 14;
-    }
+	public BackPack(GameController gameContrller) {
+		super.addMouseListener(this);// åŠ å…¥mouseç›‘å¬
+		this.gameContrller = gameContrller;
+		pack_change = 14;
+	}
 
-    private static void open_back() {
+	private static void open_back() {
 
 
-        if (frame != null) {
-            frame.dispose();
-            frame = null;
-        }
-        frame = new JFrame();
-        frame.setTitle("Pack");
-        frame.setLayout(null);
+		if (frame != null) {
+			frame.dispose();
+			frame = null;
+		}
+		frame = new JFrame();
+		frame.setTitle("Pack");
+		frame.setLayout(null);
 
-        Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (ScreenSize.getWidth() - width) / 4 * 3;
-        int y = (int) (ScreenSize.getHeight() - height) / 2;
-        frame.setLocation(x, y);
-        frame.setSize(width, height);
-        frame.setResizable(false);
-        frame.setAlwaysOnTop(true);
-        packPanel = new PackPanel();
-        frame.add(packPanel);
-        Image img = new ImageIcon("resouce/image/others/mouse.png").getImage();
-        Cursor cursor = Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0, 0), null);
-        frame.setCursor(cursor);
-        frame.setVisible(true);
-        open_pack = false;
-    }
+		Dimension ScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (int) (ScreenSize.getWidth() - width) / 4 * 3;
+		int y = (int) (ScreenSize.getHeight() - height) / 2;
+		frame.setLocation(x, y);
+		frame.setSize(width, height);
+		frame.setResizable(false);
+		frame.setAlwaysOnTop(true);
+		packPanel = new PackPanel();
+		frame.add(packPanel);
+		Image img = new ImageIcon("resouce/image/others/mouse.png").getImage();
+		Cursor cursor = Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0, 0), null);
+		frame.setCursor(cursor);
+		frame.setVisible(true);
+		open_pack = false;
+	}
 
-    public void mouseClicked(MouseEvent e)// Êó±êµ¥»÷ÊÂ¼ş
-    {
-        if (e.getButton() == MouseEvent.BUTTON1)// ÅĞ¶ÏÊÇÊó±ê×ó¼ü°´ÏÂ
-        {
-            if (open_pack) {
-                open_back();
-            } else {
-                frame.dispose();
-                open_pack = true;
-            }
-        }
-    }
+	public void mouseClicked(MouseEvent e)// é¼ æ ‡å•å‡»äº‹ä»¶
+	{
+		if (e.getButton() == MouseEvent.BUTTON1)// åˆ¤æ–­æ˜¯é¼ æ ‡å·¦é”®æŒ‰ä¸‹
+		{
+			if (open_pack) {
+				open_back();
+			} else {
+				frame.dispose();
+				open_pack = true;
+			}
+		}
+	}
 
-    public void mouseEntered(MouseEvent e)// Êó±ê½øÈë×é¼ş
-    {
-        gameContrller.setPack_height(pack_change, 1);
-        gameContrller.setPack_width(pack_change, 1);
-        gameContrller.setPack_x(pack_change / 2, 0);
-        gameContrller.setPack_y(pack_change / 2, 0);
-    }
+	public void mouseEntered(MouseEvent e)// é¼ æ ‡è¿›å…¥ç»„ä»¶
+	{
+		gameContrller.setPack_height(pack_change, 1);
+		gameContrller.setPack_width(pack_change, 1);
+		gameContrller.setPack_x(pack_change / 2, 0);
+		gameContrller.setPack_y(pack_change / 2, 0);
+	}
 
-    public void mouseExited(MouseEvent e)// Êó±êÍË³ö×é¼ş
-    {
-        gameContrller.setPack_height(pack_change, 0);
-        gameContrller.setPack_width(pack_change, 0);
-        gameContrller.setPack_x(pack_change / 2, 1);
-        gameContrller.setPack_y(pack_change / 2, 1);
-    }
+	public void mouseExited(MouseEvent e)// é¼ æ ‡é€€å‡ºç»„ä»¶
+	{
+		gameContrller.setPack_height(pack_change, 0);
+		gameContrller.setPack_width(pack_change, 0);
+		gameContrller.setPack_x(pack_change / 2, 1);
+		gameContrller.setPack_y(pack_change / 2, 1);
+	}
 
-    public void mousePressed(MouseEvent e)// Êó±ê°´ÏÂ
-    {
-    }
+	public void mousePressed(MouseEvent e)// é¼ æ ‡æŒ‰ä¸‹
+	{
+	}
 
-    public void mouseReleased(MouseEvent e)// Êó±êËÉ¿ª
-    {
-    }
+	public void mouseReleased(MouseEvent e)// é¼ æ ‡æ¾å¼€
+	{
+	}
 
 }

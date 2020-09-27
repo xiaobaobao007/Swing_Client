@@ -1,142 +1,134 @@
 package GameStart;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import javax.swing.JPanel;
+import java.awt.*;
+
+import javax.swing.*;
 
 import Client.ClientStart;
-import Controller.BackPack;
-import Controller.ExitGame;
-import Controller.GameController;
-import Controller.GameJFrame;
-import Controller.Information;
-import Controller.InputPack;
-import Controller.KeyListen;
-import Controller.Shop;
+import Controller.*;
 import Panel.Goods_infor;
 
 public class GameStart extends JPanel implements Runnable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -1034803873969025610L;
-    private static GameController gameContrller;
-    public static Thread game_thread;//ÓÎÏ·Ö÷Á÷³ÌÏß³Ì
-    public static int width = GameController.panel_width;
-    public static int height = GameController.panel_height;
-    public static boolean TF = true;
-    public static String[] Infos = new String[10];
-    private static String Welcome;
-    private static String info;
-    private int x = 0;
-    private int y1 = 600;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -1034803873969025610L;
+	private static GameController gameContrller;
+	public static Thread game_thread;//æ¸¸æˆä¸»æµç¨‹çº¿ç¨‹
+	public static int width = GameController.panel_width;
+	public static int height = GameController.panel_height;
+	public static boolean TF = true;
+	public static String[] Infos = new String[10];
+	private static String Welcome;
+	private static String info;
+	private int x = 0;
+	private int y1 = 600;
 
-    public GameStart() {
-        this.setBackground(Color.black);
-        this.setBounds(0, 0, width, height);
-        GameJFrame.restJFrame("Game", this);
-        gameContrller = new GameController();
-        gameContrller.setBounds(0, 0, width, height);
-        game_thread = new Thread(gameContrller);
-        GameJFrame.GameJFrame.addKeyListener(new KeyListen());
-        GameJFrame.toView();
-        setInfo(GameController.leave);
-        new Thread(this).start();
-    }
+	public GameStart() {
+		this.setBackground(Color.black);
+		this.setBounds(0, 0, width, height);
+		GameJFrame.restJFrame("Game", this);
+		gameContrller = new GameController();
+		gameContrller.setBounds(0, 0, width, height);
+		game_thread = new Thread(gameContrller);
+		GameJFrame.GameJFrame.addKeyListener(new KeyListen());
+		GameJFrame.toView();
+		setInfo(GameController.leave);
+		new Thread(this).start();
+	}
 
-    public static void TF(boolean t) {
-        if (TF && !t) ClientStart.OutStreamAll("1:0402");
-        TF = t;
-    }
+	public static void TF(boolean t) {
+		if (TF && !t) ClientStart.OutStreamAll("1:0402");
+		TF = t;
+	}
 
-    public static void setInfo(int id) {
-        info = Infos[id - 1];
-        Welcome = "»¶Ó­¡°" + GameController.own.getName() + "¡±À´µ½µÚ " + id + " ¹Ø";
-    }
+	public static void setInfo(int id) {
+		info = Infos[id - 1];
+		Welcome = "æ¬¢è¿â€œ" + GameController.own.getName() + "â€æ¥åˆ°ç¬¬ " + id + " å…³";
+	}
 
-    @Override
-    public void run() {
-        while (TF) {
-            repaint();
-            try {
-                Thread.sleep(30);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+	@Override
+	public void run() {
+		while (TF) {
+			repaint();
+			try {
+				Thread.sleep(30);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 
-        ClientStart.OutStreamAll("1:0402");
+		ClientStart.OutStreamAll("1:0402");
 
-        GameJFrame.GameJFrame.remove(this);
-        GameJFrame.GameJFrame.add(gameContrller);
+		GameJFrame.GameJFrame.remove(this);
+		GameJFrame.GameJFrame.add(gameContrller);
 
-        BackPack pack = new BackPack(gameContrller);// ±³°ü
-        pack.setBounds(1060, 740, 80, 80);
-        GameJFrame.GameJFrame.add(pack);
+		BackPack pack = new BackPack(gameContrller);// èƒŒåŒ…
+		pack.setBounds(1060, 740, 80, 80);
+		GameJFrame.GameJFrame.add(pack);
 
-        Shop shop = new Shop(gameContrller);// ÉÌ³Ç
-        shop.setBounds(900, 740, 80, 80);
-        GameJFrame.GameJFrame.add(shop);
+		Shop shop = new Shop(gameContrller);// å•†åŸ
+		shop.setBounds(900, 740, 80, 80);
+		GameJFrame.GameJFrame.add(shop);
 
-        InputPack input = new InputPack(gameContrller);// ÊäÈë¿ò
-        input.setBounds(30, 550, 260, 35);
-        GameJFrame.GameJFrame.add(input);
+		InputPack input = new InputPack(gameContrller);// è¾“å…¥æ¡†
+		input.setBounds(30, 550, 260, 35);
+		GameJFrame.GameJFrame.add(input);
 
-        ExitGame exit = new ExitGame(gameContrller);
-        exit.setBounds(GameController.exit_x, GameController.exit_y, GameController.exit_width, GameController.exit_height);
-        GameJFrame.GameJFrame.add(exit);
+		ExitGame exit = new ExitGame(gameContrller);
+		exit.setBounds(GameController.exit_x, GameController.exit_y, GameController.exit_width, GameController.exit_height);
+		GameJFrame.GameJFrame.add(exit);
 
-        Information information = new Information();// ¸öÈËĞÅÏ¢
-        information.setBounds(GameController.info_x, GameController.info_y, GameController.info_width, GameController.info_height);
-        GameJFrame.GameJFrame.add(information);
+		Information information = new Information();// ä¸ªäººä¿¡æ¯
+		information.setBounds(GameController.info_x, GameController.info_y, GameController.info_width, GameController.info_height);
+		GameJFrame.GameJFrame.add(information);
 
-        GameJFrame.repaintJFrame();
+		GameJFrame.repaintJFrame();
 
-        new Goods_infor("start");
-    }
+		new Goods_infor("start");
+	}
 
-    private int calculate(int x) {
-        return -x * x + 20 * x + 100;
-    }
+	private int calculate(int x) {
+		return -x * x + 20 * x + 100;
+	}
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        if (x > 19)
-            x = 0;
-        else
-            x++;
-        y1--;
-        g.setColor(new Color(255, 255, 255, calculate(x)));
-        g.setFont(new Font("ËÎÌå", Font.BOLD, 40));
-        g.drawString(Welcome, 360, 100);
-        g.drawString("°´Enter¼ü£¬¿É¿ìËÙÌø¹ı ", 700, 800);
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		if (x > 19)
+			x = 0;
+		else
+			x++;
+		y1--;
+		g.setColor(new Color(255, 255, 255, calculate(x)));
+		g.setFont(new Font("å®‹ä½“", Font.BOLD, 40));
+		g.drawString(Welcome, 360, 100);
+		g.drawString("æŒ‰Enteré”®ï¼Œå¯å¿«é€Ÿè·³è¿‡ ", 700, 800);
 
-        int z1 = 20;
-        int lenth = info.length() / z1;
-        int y0 = 0;
-        int z0;
-        for (int i = 0; i <= lenth; i++) {
-            int z2 = 45;
-            y0 = z2 * i + y1;
-            int y3 = 510;
-            int y2 = 450;
-            if (y0 < y2)
-                z0 = 255 - y2 + y0 < 0 ? 0 : 255 - y2 + y0;
-            else if (y0 > y3)
-                z0 = 255 + y3 - y0 < 0 ? 0 : 255 + y3 - y0;
-            else
-                z0 = 255;
-            g.setColor(new Color(255, 255, 255, z0));
-            int x1 = 200;
-            if (i == lenth) {
-                g.drawString(info.substring(i * z1), x1, y0);
-            } else {
-                g.drawString(info.substring(i * z1, (i + 1) * z1), x1, y0);
-            }
-        }
-        if (y0 < 400) TF = false;
-    }
+		int z1 = 20;
+		int lenth = info.length() / z1;
+		int y0 = 0;
+		int z0;
+		for (int i = 0; i <= lenth; i++) {
+			int z2 = 45;
+			y0 = z2 * i + y1;
+			int y3 = 510;
+			int y2 = 450;
+			if (y0 < y2)
+				z0 = 255 - y2 + y0 < 0 ? 0 : 255 - y2 + y0;
+			else if (y0 > y3)
+				z0 = 255 + y3 - y0 < 0 ? 0 : 255 + y3 - y0;
+			else
+				z0 = 255;
+			g.setColor(new Color(255, 255, 255, z0));
+			int x1 = 200;
+			if (i == lenth) {
+				g.drawString(info.substring(i * z1), x1, y0);
+			} else {
+				g.drawString(info.substring(i * z1, (i + 1) * z1), x1, y0);
+			}
+		}
+		if (y0 < 400) TF = false;
+	}
 }
